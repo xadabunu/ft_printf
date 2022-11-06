@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_put_hexa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xadabunu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: xadabunu <xadabunu@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 19:52:03 by xadabunu          #+#    #+#             */
-/*   Updated: 2022/11/03 19:58:45 by xadabunu         ###   ########.fr       */
+/*   Created: 2022/11/06 00:44:18 by xadabunu          #+#    #+#             */
+/*   Updated: 2022/11/06 00:44:20 by xadabunu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	ft_puthexa(const unsigned int n)
+{}
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+int	ft_puthexa_upper(const unsigned int n)
+{}
+
+int	ft_putptr(const void* ptr)
+{}
