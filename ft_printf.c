@@ -39,7 +39,7 @@ int	ft_printf(const char *str, ...)
 {
 	va_list			ap;
 	unsigned int	pos;
-	int				ctr;
+	unsigned int	ctr;
 
 	va_start(ap, str);
 	ctr = 0;
