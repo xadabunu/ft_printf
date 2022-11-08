@@ -10,26 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "include/ft_printf.h"
 
-static int	ft_flags_manager(const char c, va_list ap, int *ctr)
+static int	ft_flags_manager(const char c, va_list *ap, int *ctr)
 {
 	if (c == '%')
 		(*ctr) += ft_putchar('%');
 	else if (c == 'c')
-		(*ctr) += ft_putchar(va_arg(ap, int));
+		(*ctr) += ft_putchar(va_arg(*ap, int));
 	else if (c == 's')
-		(*ctr) += ft_putstr(va_arg(ap, char *));
+		(*ctr) += ft_putstr(va_arg(*ap, char *));
 	else if (c == 'd' || c == 'i')
-		(*ctr) += ft_putnbr(va_arg(ap, int));
+		(*ctr) += ft_putnbr(va_arg(*ap, int));
 	else if (c == 'p')
-		(*ctr) += ft_putaddress(va_arg(ap, void *));
+		(*ctr) += ft_putaddress(va_arg(*ap, void *));
 	else if (c == 'x')
-		(*ctr) += ft_puthexa(va_arg(ap, unsigned int));
+		(*ctr) += ft_puthexa(va_arg(*ap, unsigned int));
 	else if (c == 'X')
-		(*ctr) += ft_puthexa_upper(va_arg(ap, unsigned int));
+		(*ctr) += ft_puthexa_upper(va_arg(*ap, unsigned int));
 	else if (c == 'u')
-		(*ctr) += ft_putnbr_unsigned(va_arg(ap, unsigned int));
+		(*ctr) += ft_putnbr_unsigned(va_arg(*ap, unsigned int));
 	else
 		return (0);
 	return (1);
@@ -53,7 +53,7 @@ int	ft_printf(const char *str, ...)
 		if (str[pos] == '%' && str[pos + 1])
 		{
 			++pos;
-			if(ft_flags_manager(str[pos], ap, &ctr));
+			if(ft_flags_manager(str[pos], &ap, &ctr));
 				++pos;
 		}
 		str += pos;

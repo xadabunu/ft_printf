@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "include/libft.h"
+
 int	ft_putchar(const char c)
 {
 	ft_putchar_fd(c, 1);
@@ -18,6 +20,11 @@ int	ft_putchar(const char c)
 
 int	ft_putstr(const char *str)
 {
+	if (!str)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
 	ft_putstr_fd(str, 1);
 	return (ft_strlen(str));
 }
