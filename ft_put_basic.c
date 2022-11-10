@@ -10,53 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
+#include "ft_printf.h"
 
 int	ft_putchar(const char c)
 {
-	ft_putchar_fd(c, 1);
+	write(1, &c, 1);
 	return (1);
 }
 
 int	ft_putstr(const char *str)
 {
+	size_t	len;
+
 	if (!str)
 	{
-		ft_putstr_fd("(null)", 1);
+		write(1, "(null)", 6);
 		return (6);
 	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-}
-
-static int	ft_nbrlen(long n)
-{
-	int	ctr;
-
-	ctr = 1;
-	if (n < 0)
-	{
-		++ctr;
-		n = -n;
-	}
-	while (n > 9)
-	{
-		++ctr;
-		n /= 10;
-	}
-	return (ctr);
-}
-
-int	ft_putnbr(const int n)
-{
-	ft_putnbr_fd(n, 1);
-	return (ft_nbrlen(n));
+	len = ft_strlen(str);
+	write(1, str, len);
+	return (len);
 }
 
 int	ft_putnbr_unsigned(const unsigned int n)
 {
 	if (n > 9)
-		ft_putunsnbr(n / 10);
+		ft_putnbr_unsigned(n / 10);
 	ft_putchar('0' + n % 10);
 	return (ft_nbrlen(n));
 }

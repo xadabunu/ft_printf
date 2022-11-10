@@ -13,17 +13,20 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <stdarg.h>
-#include <unistd.h>
+# include <stdarg.h>
+# include <unistd.h>
 
-int	ft_printf(const char *str, ...);
+int		ft_printf(const char *str, ...);
 
-int	ft_putchar(const char c);
-int	ft_putstr(const char *str);
-int	ft_putnbr(const int n);
-int	ft_putnbr_unsigned(const unsigned int n);
-int	ft_puthexa(const unsigned int n);
-int	ft_puthexa_upper(const unsigned int n);
-int	ft_putptr(const void *ptr);
+int		ft_putchar(const char c);
+int		ft_putstr(const char *str);
+int		ft_putnbr(const int n);
+int		ft_putnbr_unsigned(const unsigned int n);
+int		ft_puthexa(const size_t n);
+int		ft_puthexa_upper(const unsigned int n);
+int		ft_putaddress(const void *ptr);
+
+size_t	ft_strlen(const char *str);
+int		ft_nbrlen(long n);
 
 #endif

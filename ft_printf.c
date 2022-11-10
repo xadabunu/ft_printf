@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
+#include "ft_printf.h"
 
-static int	ft_flags_manager(const char c, va_list *ap, int *ctr)
+static int	ft_flags_manager(const char c, va_list *ap, unsigned int *ctr)
 {
 	if (c == '%')
 		(*ctr) += ft_putchar('%');
@@ -53,7 +53,7 @@ int	ft_printf(const char *str, ...)
 		if (str[pos] == '%' && str[pos + 1])
 		{
 			++pos;
-			if(ft_flags_manager(str[pos], &ap, &ctr));
+			if (ft_flags_manager(str[pos], &ap, &ctr))
 				++pos;
 		}
 		str += pos;

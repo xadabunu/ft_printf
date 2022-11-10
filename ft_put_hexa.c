@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
+#include "ft_printf.h"
 
 static unsigned int	ft_hexalen(unsigned long long n)
 {
@@ -32,19 +32,19 @@ static void	ft_recur(const unsigned long long n, const char *base)
 	ft_putchar(base[n % 16]);
 }
 
-int	ft_puthexa(const unsigned long long n)
+int	ft_puthexa(const size_t n)
 {
 	ft_recur(n, "0123456789abcdef");
 	return (ft_hexalen(n));
 }
 
-int	ft_puthexa_upper(const unsigned long long n)
+int	ft_puthexa_upper(const unsigned int n)
 {
 	ft_recur(n, "0123456789ABCDEF");
 	return (ft_hexalen(n));
 }
 
-int	ft_putptr(const void* ptr)
+int	ft_putaddress(const void *ptr)
 {
 	return (ft_putstr("0x") + ft_puthexa((unsigned long long)ptr));
 }
