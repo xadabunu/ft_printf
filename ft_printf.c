@@ -50,7 +50,7 @@ int	ft_printf(const char *str, ...)
 			++pos;
 		write(1, str, pos);
 		ctr += pos;
-		if (str[pos] == '%' && str[pos + 1])
+		if (str[pos] == '%')
 		{
 			++pos;
 			if (ft_flags_manager(str[pos], &ap, &ctr))
